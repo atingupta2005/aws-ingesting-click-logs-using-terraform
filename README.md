@@ -32,15 +32,14 @@ The following steps provide an overview of this implementation:
 2. Execute the below commands
 
     ```
-    $ cd aws-ingesting-click-logs-using-terraform
-    $ cd source\clicklogger
-    $ mvn clean package
-    $ cd ..
-    $ cd ..
-    $ cd terraform\templates
-    $ terraform init
-    $ terraform plan
-    $ terraform apply –auto-approve
+    git clone https://github.com/atingupta2005/aws-ingesting-click-logs-using-terraform
+    cd aws-ingesting-click-logs-using-terraform
+    cd source/clicklogger
+    mvn clean package
+    cd ../../terraform/templates    
+    terraform init
+    terraform plan
+    terraform apply -auto-approve
     ```
 
 ### Test
@@ -50,7 +49,8 @@ The following steps provide an overview of this implementation:
 3. Click “dev” > “POST” (within the “/clicklogger” route)
 4. Copy the invoke Url. A sample url will be like this -  https://qvu8vlu0u4.execute-api.us-east-1.amazonaws.com/dev/clicklogger
 5. Use REST API tool like Postman or Chrome based web extension like RestMan to post data to your endpoint
-
+    Request Type: POST
+    Body Type: RAW JSON
     Add Header: Key “Authorization” with value “ALLOW=ORDERAPP”.
 
     Sample Json Request:
