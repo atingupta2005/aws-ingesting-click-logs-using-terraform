@@ -1,10 +1,6 @@
 # Ingesting Web Application Click Logs into AWS using Terraform (By HashiCorp)
 
-This post provides an API based ingestion application system for websites & applications to push user interactions, click actions from their website into AWS. The ingestion process will be exposed using a web-based interaction with an API Gateway endpoint. 
-
-The Amazon API Gateway (https://aws.amazon.com/api-gateway/) processes the incoming data into an AWS Lambda (https://aws.amazon.com/lambda/) during which the system validates the request using a Lambda Authorizer and pushes the data to a Amazon Kinesis Data Firehose (https://aws.amazon.com/kinesis/data-firehose/). Leverage Firehose’s capability to convert the incoming data and convert it into a Parquet file before pushing it to Amazon S3 (https://aws.amazon.com/s3/). AWS Glue catalog (https://aws.amazon.com/glue/) is used for the conversion. Additionally, a transformational/consumer lambda does additional processing by pushing it to Amazon DynamoDB (https://aws.amazon.com/dynamodb/). 
-
-The data hosted in Amazon S3 (Parquet file) and DynamoDB can be eventually used for generating reports and metrics depending on customer needs to monitor user experience, behavior and additionally provide better recommendations on their website.
+- API based ingestion application system for websites & applications to push user interactions, click actions from their website into AWS
 
 The following steps provide an overview of this implementation:
 
@@ -71,43 +67,11 @@ Sample Json Request:
     - DynamoDB table - Select “clickloggertable” and view the “items” to see data. 
  
  ## Cleanup
-
-**Make sure to check the following are deleted before the delete stacks are performed**
-
-   - Contents of the S3 files are deleted
-        - Go to "Resources" tab, select the s3 bucket created as part of the  stack and delete the S3 bucket manually.
-        - Select all the contents & delete the contents manually
-
-
-**S3 and created services can be deleted using CLI also. Execute the below commands:**
-
     ```
     # CLI Commands to delete the S3  
     $ aws s3 rb s3://click-logger-firehose-delivery-bucket-<your-account-number> --force
     $ terraform destroy –-auto-approve
     ```
-
-
-## References
-
-* Terraform:  Beyond the basics with AWS 
-https://aws.amazon.com/blogs/apn/terraform-beyond-the-basics-with-aws/
-
-* API Management strategies 
-https://aws.amazon.com/api-gateway/api-management/
-
-* Amazon Kinesis
-https://aws.amazon.com/kinesis/
-
-* API Gateway with Lambda Authorizers
-https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-to-api.html
-
-* Kinesis Data Streams (KDS)
-https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-to-api.html
-
-
-
-
 
 
 ## License
