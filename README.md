@@ -53,17 +53,17 @@ The following steps provide an overview of this implementation:
     - Body Type: RAW JSON
     - Add Header: Key “Authorization” with value “ALLOW=ORDERAPP”.
 
-    Sample Json Request:
-    ```
-    {
-        "requestid": "OAP-guid-05122020-1345-12345-678910",
-        "contextid": "OAP-guid-05122020-1345-1234-5678",
-        "callerid": "OrderingApplication",
-        "component": "login",
-        "action": "click",
-        "type": "webpage"
-    }
-    ```
+Sample Json Request:
+```
+{
+  "requestid": "OAP-guid-05122020-1345-12345-678910",
+  "contextid": "OAP-guid-05122020-1345-1234-5678",
+  "callerid": "OrderingApplication",
+  "component": "login",
+  "action": "click",
+  "type": "webpage"
+}
+```
 6. Output - You should see the output in both S3 bucket and DynamoDB
     a. S3 – Navigate to the bucket created as part of the stack
         * Select the file and view the file from “Select From” sub tab . You should see something ingested stream got converted into parquet file.
