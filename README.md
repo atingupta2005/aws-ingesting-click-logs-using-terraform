@@ -69,8 +69,9 @@ Sample Json Request:
  ## Cleanup
     ```
     # CLI Commands to delete the S3  
-    $ aws s3 rb s3://click-logger-firehose-delivery-bucket-<your-account-number> --force
-    $ terraform destroy –-auto-approve
+    terraform state show aws_s3_bucket.click_logger_firehose_delivery_s3_bucket | grep clicklogger-dev-firehose-delivery-bucket-
+    aws s3 rb s3://clicklogger-dev-firehose-delivery-bucket-<your-account-number> --force
+    terraform destroy –-auto-approve
     ```
 
 
