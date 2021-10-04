@@ -65,10 +65,10 @@ Sample Json Request:
 }
 ```
 6. Output - You should see the output in both S3 bucket and DynamoDB
-    a. S3 – Navigate to the bucket created as part of the stack
+    - S3 – Navigate to the bucket created as part of the stack
         * Select the file and view the file from “Select From” sub tab . You should see something ingested stream got converted into parquet file.
         * Select the file and view the data
-    b. DynamoDB table - Select “clickloggertable” and view the “items” to see data. 
+    - DynamoDB table - Select “clickloggertable” and view the “items” to see data. 
  
  ## Cleanup
 
