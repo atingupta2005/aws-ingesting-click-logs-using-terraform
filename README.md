@@ -8,11 +8,11 @@ The following steps provide an overview of this implementation:
 
 2. Terraform commands are initiated (provided below) to deploy the infrastructure in AWS. 
 3. An API Gateway, S3 bucket, Dynamo table, following Lambdas are built and deployed in AWS.
-   a. Lambda Authorizer – This lambda validates the incoming request for header authorization from API gateway to processing lambda. 
-        * ClickLogger Lamba – This lambda processes the incoming request and pushes the data into Firehose stream
-        * Transformational Lambda – This lambda listens to the Firehose stream data and processes this to DynamoDB. In real world these lambda can more additional filtering, processing etc.,
-   b. Once the data “POST” is performed to the API Gateway exposed endpoint, the data traverses through the lambda and Firehose stream converts the incoming stream into a Parquet file. We use AWS Glue to perform this operation.
-   c. The incoming click logs are eventually saved as Parquet files in S3 bucket and additionally in the DynamoDB
+   - Lambda Authorizer – This lambda validates the incoming request for header authorization from API gateway to processing lambda. 
+        - ClickLogger Lamba – This lambda processes the incoming request and pushes the data into Firehose stream
+        - Transformational Lambda – This lambda listens to the Firehose stream data and processes this to DynamoDB. In real world these lambda can more additional filtering, processing etc.,
+   - Once the data “POST” is performed to the API Gateway exposed endpoint, the data traverses through the lambda and Firehose stream converts the incoming stream into a Parquet file. We use AWS Glue to perform this operation.
+   - The incoming click logs are eventually saved as Parquet files in S3 bucket and additionally in the DynamoDB
 
 ![Alt text](ingesting%20click%20logs%20from%20web%20application.png?raw=true "Title")
 
